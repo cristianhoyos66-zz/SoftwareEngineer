@@ -1,0 +1,570 @@
+<div
+  class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+  style="
+    min-height: 600px;
+    background-image: url(assets/img/theme/profile-cover.jpg);
+    background-size: cover;
+    background-position: center top;
+  "
+>
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white">Hello Jesse</h1>
+        <p class="text-white mt-0 mb-5">
+          This is the place in which you can evaluate your employees.
+          <br />
+          You will see 13 topics, which should be evaluated between 1 and 4. It
+          means that if you choose 4 for all the topics, the total will be 52.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <div class="card card-profile shadow">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <a href="javascript:void(0)">
+                <img
+                  src="assets/img/theme/team-1-800x800.jpg"
+                  class="rounded-circle"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+          <div class="d-flex justify-content-between"></div>
+        </div>
+        <div class="card-body pt-0 pt-md-4">
+          <div class="row">
+            <div class="col">
+              <div
+                class="card-profile-stats d-flex justify-content-center mt-md-5"
+              ></div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3>
+              {{ loggedUserFullname }}
+              <span class="font-weight-light"> {{ loggedUserName }}</span>
+            </h3>
+            <hr class="my-4" />
+            <p>{{ assessmentResult.score }} - {{ assessmentResult.message }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-8 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Areas to evaluate</h3>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="pl-lg-4">
+              <h6 class="heading-small text-muted mb-4">
+                Please rate each of these topics with a value from 1 to 4
+              </h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="personal-relationship-title"
+                    >
+                      Personal relationship:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="personal-relationship-desc"
+                    >
+                      Promotes a healthy coexistence with the other
+                      collaborators of the organization. Maintains an attitude
+                      of respect and cordiality with internal and external
+                      customers. Also helps his colleagues in necessary moments
+                      as well as to actively contribute to a good work
+                      environment.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="personal-relationship-rate"
+                    >
+                      Rate personal relationship from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="personal-relationship-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[0]"
+                      name="personal-relationship-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="changes-adaptability-title"
+                    >
+                      Adaptability to changes:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="changes-adaptability-desc"
+                    >
+                      Shows the ability to modify personal behavior and achieve
+                      certain objectives when difficulties arise, periods of
+                      work under pressure or changes in the environment and / or
+                      work.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="changes-adaptability-rate"
+                    >
+                      Rate adaptability to changes from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="changes-adaptability-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[1]"
+                      name="changes-adaptability-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="proactivity-title">
+                      Proactivity:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="proactivity-desc"
+                    >
+                      Shows in his behavior the ability to generate viable
+                      proposals in order to improve the processes in his work,
+                      also shows a willingness to take action, create
+                      opportunities and optimize results. Shows willingness to
+                      carry out activities not typical of their work for the
+                      continuous improvement of the organization.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="proactivity-rate">
+                      Rate proactivity from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="proactivity-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[2]"
+                      name="proactivity-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="rules-acceptance-title"
+                    >
+                      Guidelines and rules acceptance:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="rules-acceptance-desc"
+                    >
+                      Expresses fulfillment of orders with receptivity and
+                      efficiency in the time specified for the task, preserving
+                      respect for the policies, regulations and administrative
+                      dynamics of the organization.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="rules-acceptance-rate"
+                    >
+                      Rate guidelines and rules acceptance from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="rules-acceptance-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[3]"
+                      name="rules-acceptance-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="team-work-title">
+                      Team work:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="team-work-desc"
+                    >
+                      Actively works towards a goal proposed by your group, you
+                      are receptive to the recommendations and changes of your
+                      group. Motivates and encourages the team in the
+                      achievement of goals.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="team-work-rate">
+                      Rate team work from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="team-work-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[4]"
+                      name="team-work-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="managemente-title">
+                      Management follow up:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="managemente-desc"
+                    >
+                      Fully complies with the strategic direction (policies,
+                      values, objectives, processes, procedures, among others)
+                      described in the MS. You use MSs as a tool to carry out
+                      your work activities, rather than as an obligation that
+                      you must fulfill. Comply with assigned roles and
+                      responsibilities.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="management-rate">
+                      Rate management follow up from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="management-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[5]"
+                      name="management-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="responsibility-title"
+                    >
+                      Responsibility:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="responsibility-desc"
+                    >
+                      Demonstrates his sense of responsibility and takes care to
+                      fulfill the activities in his charge based on quality,
+                      timely delivery. Actively participates in the activities
+                      scheduled within the work.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="responsibility-rate">
+                      Rate responsibility from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="responsibility-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[6]"
+                      name="responsibility-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="assertive-communication-title"
+                    >
+                      Assertive communication:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="assertive-communication-desc"
+                    >
+                      Ability to interpret and transmit information in an
+                      adequate, clear and timely manner, both verbally,
+                      non-verbally and in writing, being prudent and providing
+                      feedback in the appropriate contexts.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="assertive-communication-rate"
+                    >
+                      Rate assertive communication from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="assertive-communication-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[7]"
+                      name="assertive-communication-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="service-oriented-title"
+                    >
+                      Service oriented:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="service-oriented-desc"
+                    >
+                      Shows the ability to focus efforts in favor of the
+                      service, characterized by its agility, kindness and
+                      effectiveness to satisfy not only needs or demands, but
+                      also expectations.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label
+                      class="form-control-label"
+                      for="service-oriented-rate"
+                    >
+                      Rate service oriented from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="service-oriented-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[8]"
+                      name="service-oriented-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="achieveness-title">
+                      Achieveness on functions and responsibilities:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="achieveness-desc"
+                    >
+                      Fully complies with the functions and / or
+                      responsibilities assigned to his position, contained in
+                      the employment contract, profile guide and others
+                      assigned.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="achieveness-rate">
+                      Rate achieveness from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="achieveness-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[9]"
+                      name="achieveness-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="schooling-title">
+                      Schooling and/or courses:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="schooling-desc"
+                    >
+                      Complies with the studies related to the profile of the
+                      position (in case you are studying to strengthen this
+                      aspect, you must report it)
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="schooling-rate">
+                      Rate schooling and/or courses from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="schooling-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[10]"
+                      name="schooling-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="proficiency-title">
+                      Proficiency:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="proficiency-desc"
+                    >
+                      Complies with the competencies related to the job profile
+                      or profile guide.
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="proficiency-rate">
+                      Rate complementary courses from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="proficiency-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[11]"
+                      name="proficiency-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="improvement-title">
+                      Improvement:
+                    </label>
+                    <label
+                      class="form-control-label text-muted"
+                      for="improvement-desc"
+                    >
+                      Improves everyday on each area related to the job
+                    </label>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="improvement-rate">
+                      Rate improvement from 1 to 4:
+                    </label>
+                    <input
+                      type="range"
+                      id="improvement-rate"
+                      class="form-control form-control-alternative"
+                      min="1"
+                      max="4"
+                      [(ngModel)]="responses[12]"
+                      name="improvement-rate"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="text-right">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg"
+                  (click)="saveResponses()"
+                >
+                  Send assessment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
